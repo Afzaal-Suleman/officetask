@@ -11,3 +11,12 @@ export const getProducts = async (): Promise<Product[]> => {
 
   return res.json();
 };
+
+export const getProductById = async (id: string): Promise<Product> => {
+  const res = await fetch(`${API_URL}/products/${id}`); 
+  if (!res.ok) {
+    throw new Error("Failed to fetch product");
+  }
+
+  return res.json();
+};
