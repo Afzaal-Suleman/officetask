@@ -20,3 +20,11 @@ export const getProductById = async (id: string): Promise<Product> => {
 
   return res.json();
 };
+
+export const getCategories = async (): Promise<string[]> => {
+  const res = await fetch(`${API_URL}/products/categories`);  
+  if (!res.ok) {
+    throw new Error("Failed to fetch categories");
+  }   
+  return res.json();
+};

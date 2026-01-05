@@ -1,8 +1,12 @@
 import Products from '@/components/Products';
-export default function Home() {
+import { getCategories, getProducts } from '@/services/productService';
+export default async function Home() {
+
+  const products = await getProducts()
+  const categories = await getCategories();
   return (
     <div>
-      <Products />
+      <Products products={products} categories={categories} />
     </div>
   );
 }

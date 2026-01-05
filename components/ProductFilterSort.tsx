@@ -21,15 +21,8 @@ export default function ProductFilterSort({
 }: Props) {
   return (
     <div className="flex flex-col gap-4 mb-6">
-      
-      {/* Search */}
-      <input
-        type="text"
-        placeholder="Search products..."
-        value={search}
-        onChange={(e) => onSearchChange(e.target.value)}
-        className="border px-4 py-2 rounded-md w-full"
-      />
+
+
 
       <div className="flex flex-col sm:flex-row gap-4">
         {/* Category Filter */}
@@ -45,7 +38,14 @@ export default function ProductFilterSort({
             </option>
           ))}
         </select>
-
+        {/* Search */}
+        <input
+          type="text"
+          placeholder="Search products..."
+          value={search}
+          onChange={(e) => onSearchChange(e.target.value)}
+          className="border px-4 py-2 rounded-md w-full"
+        />
         {/* Price Sort */}
         <select
           value={sortOrder}
