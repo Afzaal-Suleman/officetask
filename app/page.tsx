@@ -1,10 +1,15 @@
 import Products from '@/components/Products';
-import { getCategories, getProducts } from '@/services/productService';
-export default async function Home() {
+import { getProducts, getCategories } from '@/services/productService';
 
+export const dynamic = "force-dynamic"; 
+
+export default async function Home() {
   try {
-    const products = await getProducts()
-    const categories = await getCategories();
+    const [products, categories] = await Promise.all([
+      getProducts(),
+      getCategories(),
+    ]);
+
     return <Products products={products} categories={categories} />;
   } catch (error) {
     console.error("Failed to fetch products:", error);
